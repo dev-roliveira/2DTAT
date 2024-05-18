@@ -41,7 +41,7 @@ ano_final = st.session_state.filtro_ano[1]
 
 df.reset_index(inplace=True)
 
-def plotar(ano_inicial, ano_final):
+def plotar(ano_inicial, ano_final, titulo):
     date_data = df[(df['Data'].dt.year >= ano_inicial) & (df['Data'].dt.year <=ano_final)]
 
     trace1 = go.Scatter(
@@ -51,7 +51,7 @@ def plotar(ano_inicial, ano_final):
         name = 'Data'
     )
     layout = go.Layout(
-        title = "Evolução do valor do Petroleo Brent de 1987 a 2024",
+        title = titulo,
         xaxis = {'title' : "Data"},
         yaxis = {'title' : "Fechamento"},
     )
@@ -66,11 +66,13 @@ with st.expander("1991"):
              '\n Nessa época, iniciou-se a guerra na Palestina. Bem como a guerra do golfo, ' + 
              'que com a invasão do Kuwait pelo Iraque, culminou em incêndios de poços de petróleo no país ' + 
              'ao serem expulsos pelos EUA.') 
-    
+    plotar(1991, 1991, 'Ano de 1991')
+
 with st.expander("Primeiro semestre de 2008"):
     st.markdown('Em Julho de 2008 o Petróleo atingiu seu máximo histórico, devido à tensões entre Irã, Nigéria e Paquistão. ' + 
                 'Além da conscientização de que trata-se de um recurso limitado, ' + 
                 'e grande procura em fundos de investimentos por matérias-primas.')     
+    plotar(2008, 2008, 'Segundo Semestre de 2008')     
 
 with st.expander("Segundo semestre de 2008"):
     st.markdown('Observa-se uma queda no valor do Petróleo Puro a partir de Julho de 2008.' + 
@@ -79,11 +81,14 @@ with st.expander("Segundo semestre de 2008"):
                 'Que fez com que os investidores que antes adotaram à febre de investimento por matérias-primas, ' + 
                 'abandonassem esse produto por precisarem de liquidez.' +
                 'Além disso, o petróleo caro faz com que o consumo de combustível caia, e com isso a demanda diminua.')     
+    plotar(2008, 2008, 'Primeiro Semestre de 2008')     
 
 with st.expander("Crise de 2015"):
     st.markdown('No ano de 2015, tivemos mais uma crise de petróleo, com quedas significativas no preço do barril. ' + 
                 'Os principais apontados como "culpados" pela queda dos preços são o aumento de produção, em especial nas áreas de xisto dos EUA, e uma demanda menor que a esperada na Europa e na Ásia.')    
+    plotar(2014, 2015, 'Crise de 2015')     
 
 with st.expander("Pandemia COVID-19"):
     st.markdown('No final de 2019 e início de 2020 vivemos o começo da pandemia COVID-19, ' + 
                 'e toda a situação caótica mundial afetou os preços do petróleo.')      
+    plotar(2019, 2020, 'Pandemia COVID-19')     
