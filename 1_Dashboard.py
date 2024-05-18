@@ -58,7 +58,7 @@ def plotar(ano_inicial, ano_final, titulo):
     fig = go.Figure(data=trace1, layout=layout)
     st.plotly_chart(fig)
 
-plotar(ano_inicial, ano_final)
+plotar(ano_inicial, ano_final, "Evolução do valor do Petroleo Brent de 1987 a 2024")
 
 st.markdown('## Épocas de destaque:')
 with st.expander("1991"):
